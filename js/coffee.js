@@ -86,28 +86,43 @@ class Latte extends Coffee {
 
 /* STEP 6: Create a new instance of the Latte object */
 let priyanshLatte = new Latte("small", false, "2%");
-class cappuccino extends coffee {
+
+/* MY CUSTOM SUBCLASS: Cappuccino */
+class Cappuccino extends Coffee {
+
+    // New property 
     foamLevel;
     constructor(size, isDecaf, foamLevel) {
+
+        // Inherit from coffee 
         super(size, isDecaf);
+
         this.foamLevel = foamLevel;
     }
-}
+    // Custom method 
     cappuccinoDesc() {
         return `A ${this.size} Cappuccino with ${this.foamLevel} foam level.`;
     }
+}    
+    
+    /* Create two Cappuccino objects */
 
-    let myCappuccion1 = ("large", false, "high");
-    let myCappuccion1 = ("small", false, "medium"); 
+    let myCappuccino1 = new Cappuccino("large", false, "high");
+
+    let myCappuccino2 = new Cappuccino("small", false, "medium"); 
+    
+
+    /* Display description */
+    output.innerHTML += "<br>";
+    output.innerHTML += myCappuccino1.cappuccinoDesc();
 
     output.innerHTML += "<br>";
-    output.innerHTML += myCappuccion1.cappuccinoDesc();
+    output.innerHTML += myCappuccino2.cappuccinoDesc();
+    
+    /* Use inherited serveIt() method */
+    myCappuccino1.serveIt();
 
-    output.innerHTML += "<br>";
-    output.innerHTML += myCappuccion2.cappuccinoDesc();
-
-    myCappuccion1.serveIt();
-    myCappuccion2.serveIt();
+    myCappuccino2.serveIt();
 
 /* STEP 7: Call up the latteDesc() method for the above created Latte instance */
 
